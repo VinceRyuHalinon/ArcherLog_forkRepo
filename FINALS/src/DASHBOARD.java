@@ -18,8 +18,36 @@ public class DASHBOARD extends javax.swing.JFrame {
      * Creates new form DASHBOARD
      */
     public DASHBOARD() {
-        initComponents();
+    initComponents();
+
+    // Set preferred size for the label (adjust as needed)
+    jLabel5.setPreferredSize(new java.awt.Dimension(150, 150));
+
+    // Load and scale the logo after the GUI is packed
+    java.awt.EventQueue.invokeLater(() -> loadLogo());
+}
+
+private void loadLogo() {
+    java.net.URL url = getClass().getResource("/NBSC.png");
+
+    if (url != null) {
+        javax.swing.ImageIcon icon = new javax.swing.ImageIcon(url);
+
+        // Use preferred size instead of getWidth/getHeight
+        java.awt.Dimension size = jLabel5.getPreferredSize();
+        java.awt.Image img = icon.getImage().getScaledInstance(
+                size.width,
+                size.height,
+                java.awt.Image.SCALE_SMOOTH
+        );
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(img));
+    } else {
+        System.out.println("NBSC.png not found");
     }
+}
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,7 +79,6 @@ public class DASHBOARD extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(51, 255, 102));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/NBSC.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Black", 3, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 255));
@@ -62,18 +89,18 @@ public class DASHBOARD extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(107, 107, 107))
         );
@@ -122,7 +149,7 @@ public class DASHBOARD extends javax.swing.JFrame {
                             .addComponent(NAME, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addContainerGap(84, Short.MAX_VALUE))
+                        .addContainerGap(119, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
