@@ -13,12 +13,21 @@ public class LIST extends javax.swing.JFrame {
     private LinkedList<main_menu.Student> registrantsList;
 
     public LIST(LinkedList<main_menu.Student> registrantsList) {
-        this.registrantsList = registrantsList;
-        initComponents();
-        displayStudents();
-    }
+    this.registrantsList = registrantsList;
+    initComponents();
 
-    private void displayStudents() {
+    // Make text area read-only
+    taStudentList.setEditable(false);
+
+    // Display current students
+    displayStudents();
+
+    // Refresh button updates the list
+    btnRefresh.addActionListener(e -> displayStudents());
+}
+
+
+    public void displayStudents() {
         StringBuilder sb = new StringBuilder();
         for (main_menu.Student s : registrantsList) {
             sb.append("ID: ").append(s.studentID)
@@ -27,7 +36,7 @@ public class LIST extends javax.swing.JFrame {
         }
 
         // Show it in a text area (you need to add a JTextArea in LIST form)
-        studentTextArea.setText(sb.toString());
+        taStudentList.setText(sb.toString());
     }
     
     
@@ -54,7 +63,8 @@ public class LIST extends javax.swing.JFrame {
         Return = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        studentTextArea = new javax.swing.JTextArea();
+        taStudentList = new javax.swing.JTextArea();
+        btnRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,16 +80,16 @@ public class LIST extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(118, 118, 118)
                 .addComponent(jLabel1)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Return.setText("RETURN");
@@ -95,11 +105,13 @@ public class LIST extends javax.swing.JFrame {
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
 
-        studentTextArea.setColumns(20);
-        studentTextArea.setRows(5);
-        jScrollPane2.setViewportView(studentTextArea);
+        taStudentList.setColumns(20);
+        taStudentList.setRows(5);
+        jScrollPane2.setViewportView(taStudentList);
 
         jScrollPane1.setViewportView(jScrollPane2);
+
+        btnRefresh.setText("Refresh List");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,12 +119,14 @@ public class LIST extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addComponent(btnRefresh)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Return)
                 .addGap(16, 16, 16))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,7 +136,9 @@ public class LIST extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Return)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Return)
+                    .addComponent(btnRefresh))
                 .addGap(14, 14, 14))
         );
 
@@ -188,11 +204,12 @@ DASHBOARD dash = new DASHBOARD();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Return;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea studentTextArea;
+    private javax.swing.JTextArea taStudentList;
     // End of variables declaration//GEN-END:variables
 }

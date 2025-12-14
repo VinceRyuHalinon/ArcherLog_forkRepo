@@ -17,6 +17,9 @@ public class main_menu extends javax.swing.JFrame {
 private LinkedList<Student> registrantsList = new LinkedList<>();
 private HashMap<String, Student> studentMap = new HashMap<>();
 
+private LIST listFrame = null; // Reference to the list window
+
+
 public class Student {
     String studentID;
     LocalDateTime registrationTime;
@@ -32,8 +35,8 @@ public class Student {
     public main_menu() {
         initComponents();
         
-btnRegister.addActionListener(e -> {
-    String id = tfStudentID.getText().trim();
+btnRegisterStudent.addActionListener(e -> {
+    String id = tfStudentIDRegister.getText().trim();
 
     if (id.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Please enter your Student ID.");
@@ -54,9 +57,14 @@ btnRegister.addActionListener(e -> {
 
     JOptionPane.showMessageDialog(this, "Registration successful!");
 
-    // Optionally, clear the input field
-    tfStudentID.setText("");
+    tfStudentIDRegister.setText("");
+
+    // Refresh LIST if it is open
+    if (listFrame != null && listFrame.isDisplayable()) {
+        listFrame.displayStudents();
+    }
 });
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,8 +83,8 @@ btnRegister.addActionListener(e -> {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        tfStudentID = new javax.swing.JTextField();
-        btnRegister = new javax.swing.JButton();
+        tfStudentIDRegister = new javax.swing.JTextField();
+        btnRegisterStudent = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,10 +102,10 @@ btnRegister.addActionListener(e -> {
 
         jLabel5.setText("Tap \"Register\" to confirm");
 
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+        btnRegisterStudent.setText("Register");
+        btnRegisterStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
+                btnRegisterStudentActionPerformed(evt);
             }
         });
 
@@ -109,7 +117,7 @@ btnRegister.addActionListener(e -> {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfStudentIDRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(68, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -121,7 +129,7 @@ btnRegister.addActionListener(e -> {
                         .addComponent(jLabel5)
                         .addGap(131, 131, 131))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnRegister)
+                        .addComponent(btnRegisterStudent)
                         .addGap(157, 157, 157))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -132,11 +140,11 @@ btnRegister.addActionListener(e -> {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(tfStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfStudentIDRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRegister)
+                .addComponent(btnRegisterStudent)
                 .addContainerGap())
         );
 
@@ -208,14 +216,17 @@ btnRegister.addActionListener(e -> {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+    private void btnRegisterStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterStudentActionPerformed
 
-        LIST dash = new LIST();
-        dash.setVisible(true);
-        dispose();
+    if (listFrame == null || !listFrame.isDisplayable()) {
+    listFrame = new LIST(registrantsList); // Pass the actual list
+    listFrame.setVisible(true);
+} else {
+    listFrame.toFront(); // Bring the window to front if already open
+}
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegisterActionPerformed
+    }//GEN-LAST:event_btnRegisterStudentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,7 +264,7 @@ btnRegister.addActionListener(e -> {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnRegisterStudent;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -261,7 +272,7 @@ btnRegister.addActionListener(e -> {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblEventName;
-    private javax.swing.JTextField tfStudentID;
+    private javax.swing.JTextField tfStudentIDRegister;
     private javax.swing.JLabel txtEventDetails;
     // End of variables declaration//GEN-END:variables
 }

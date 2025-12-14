@@ -134,7 +134,7 @@
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tfStudentID" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="tfStudentIDRegister" min="-2" pref="157" max="-2" attributes="0"/>
                           <EmptySpace pref="68" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -149,7 +149,7 @@
                                   <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnRegister" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRegisterStudent" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -164,12 +164,12 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfStudentID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfStudentIDRegister" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="25" max="32767" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnRegister" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRegisterStudent" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -194,14 +194,14 @@
                     <Property name="text" type="java.lang.String" value="Tap &quot;Register&quot; to confirm"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="tfStudentID">
+                <Component class="javax.swing.JTextField" name="tfStudentIDRegister">
                 </Component>
-                <Component class="javax.swing.JButton" name="btnRegister">
+                <Component class="javax.swing.JButton" name="btnRegisterStudent">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Register"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterStudentActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

@@ -63,9 +63,9 @@ private void loadLogo() {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        NAME = new javax.swing.JTextField();
-        ID = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        tfStudentNameLogin = new javax.swing.JTextField();
+        tfStudentIDLogin = new javax.swing.JTextField();
+        btnLogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -110,22 +110,22 @@ private void loadLogo() {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ARCHER LOG");
 
-        NAME.addActionListener(new java.awt.event.ActionListener() {
+        tfStudentNameLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NAMEActionPerformed(evt);
+                tfStudentNameLoginActionPerformed(evt);
             }
         });
 
-        ID.addActionListener(new java.awt.event.ActionListener() {
+        tfStudentIDLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDActionPerformed(evt);
+                tfStudentIDLoginActionPerformed(evt);
             }
         });
 
-        jButton1.setText("LOG-IN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setText("LOG-IN");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
@@ -143,10 +143,10 @@ private void loadLogo() {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1)
+                            .addComponent(tfStudentIDLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLogin)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NAME, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfStudentNameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addContainerGap(119, Short.MAX_VALUE))
@@ -166,13 +166,13 @@ private void loadLogo() {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(4, 4, 4)
-                .addComponent(NAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfStudentNameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfStudentIDLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addComponent(jButton1)
+                .addComponent(btnLogin)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -190,9 +190,9 @@ private void loadLogo() {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-String name = NAME.getText();
-        String id = ID.getText();
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+String name = tfStudentNameLogin.getText();
+        String id = tfStudentIDLogin.getText();
 
 if (!name.matches("[a-zA-Z ]+")) {
     JOptionPane.showMessageDialog(null, "Invalid Name: Must contain only letters and spaces (no numbers).", "Input Error", JOptionPane.ERROR_MESSAGE);
@@ -239,16 +239,16 @@ try {
     System.out.println("ERROR");
     e.printStackTrace();
 }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
+    private void tfStudentIDLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfStudentIDLoginActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_IDActionPerformed
+    }//GEN-LAST:event_tfStudentIDLoginActionPerformed
 
-    private void NAMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NAMEActionPerformed
+    private void tfStudentNameLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfStudentNameLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NAMEActionPerformed
+    }//GEN-LAST:event_tfStudentNameLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,9 +286,7 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ID;
-    private javax.swing.JTextField NAME;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -297,5 +295,7 @@ try {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField tfStudentIDLogin;
+    private javax.swing.JTextField tfStudentNameLogin;
     // End of variables declaration//GEN-END:variables
 }
